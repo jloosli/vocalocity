@@ -26,7 +26,7 @@ var vocalocity = {
                 if (req.readyState == 4) {
                     switch (req.status) {
                         case 200 :
-                            me.infoMessage('Call was placed.', "info");
+                            me.infoMessage('Call to ' +theNumber + ' was placed.', "info");
                             break;
                         case 400 :
                             me.infoMessage('Bad phone number', "error");
@@ -77,7 +77,7 @@ var vocalocity = {
         storage.set({'lastNumbers':this.lastNumbers});
         $("<li />").html($('<a />', {
                 href: '#',
-                text: number
+                text: self.formatNumber(number)
             })).appendTo($('#recent ul'));
 
 
@@ -98,7 +98,7 @@ var vocalocity = {
             list && $.each(list, function (idx,item) {
                 link = $('<a />', {
                     href : "#",
-                    text: item
+                    text: self.formatNumber(item)
                 });
                 domList.append(link);
             });
@@ -111,6 +111,12 @@ var vocalocity = {
     },
     loadNumber: function (number) {
         $('#dialer').val(number);
+    },
+    formatNumber: function (number) {
+        if(number.length > 7) {
+            number = number.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+        }
+        return number;
     },
     init:function () {
         this.populateLastDialed();
