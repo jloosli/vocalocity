@@ -1,0 +1,485 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"max",
+				"maxwidth"
+			],
+			[
+				"defau",
+				"defaultURL"
+			],
+			[
+				"upd",
+				"updateIP"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "manifest.json",
+			"settings":
+			{
+				"buffer_size": 455,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "popup.html",
+			"settings":
+			{
+				"buffer_size": 1899,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "popup.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jared/.cache/.fr-unq5bR/ClientsController.php",
+			"settings":
+			{
+				"buffer_size": 9695,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"ssjson",
+				"Set Syntax: JSON"
+			],
+			[
+				"section",
+				"Rot13 Selection"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"Snippet: ",
+				"Snippet: python3"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/jared/Documents/vocalcity/manifest.json",
+		"/home/jared/Documents/vocalcity/popup.html",
+		"/home/jared/Documents/vocalcity/popup.js",
+		"/home/jared/Documents/vocalcity/scripts.js",
+		"/home/jared/treadtracks/coreconsole/extraction/extractprintdata.py",
+		"/home/jared/bin/smashingCal.py",
+		"/home/jared/treadtracks/custdata/wonderland/myprintfile",
+		"/home/jared/treadtracks/custdata/quality/scoprint-62254",
+		"/home/jared/treadtracks/custdata/quality/scoprint-62251",
+		"/home/jared/treadtracks/custdata/quality/scoprint-62250",
+		"/home/jared/treadtracks/custdata/quality/scoprint-62253",
+		"/home/jared/treadtracks/custdata/quality/scoprint-62255",
+		"/home/jared/treadtracks/custdata/quality/scoprint-62279",
+		"/home/jared/treadtracks/custdata/quality/scoprint-62252",
+		"/var/www/angus/wp-content/themes/adaptive/css/bootstrap.css",
+		"/var/www/angus/wp-content/themes/adaptive/css/master.css",
+		"/home/jared/.cache/.fr-Wcn2La/adaptive html/css/styles.less",
+		"/home/jared/.cache/.fr-NErYSv/starting_blocks/css/styles.less",
+		"/home/jared/.cache/.fr-TXOp6k/adaptive html/css/styles.less",
+		"/home/jared/.cache/.fr-TBNXQl/tileable_wood_texture/readme.txt",
+		"/home/jared/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/jared/treadtracks/coreconsole/extraction/output/TREAD_TYPES_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/TREAD_DESIGN_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/TIRE_SIZE_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/SALESMAN_MASTER_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/FINISHED_GOODS_CATEGORY_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/CUSTOMER_PROFILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/RAW_MATERIALS_MASTER_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/RAR_REASONS",
+		"/home/jared/treadtracks/coreconsole/extraction/output/PRODUCTION_SUMMARY_BY_TREAD_DESIGN",
+		"/home/jared/treadtracks/coreconsole/extraction/output/MOLD_CAVITY_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/MFR-BRAND_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/FINISHED_GOODS_MASTER_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/BUFF_SPECIFICATIONS",
+		"/home/jared/treadtracks/coreconsole/extraction/output/BRAND-ORIGINAL_CASING_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/BEAD_PLATE_FILE",
+		"/home/jared/treadtracks/coreconsole/extraction/output/ACTIVE_INVENTORY_REPORT",
+		"/home/jared/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/jared/Downloads/treadtracks_quality (1).sql",
+		"/home/jared/Downloads/users (1).sql",
+		"/home/jared/Downloads/users.sql",
+		"/home/jared/treadtracks/custdata/quality/scoprint-62076",
+		"/home/jared/.config/sublime-text-2/Packages/User/python3.sublime-snippet",
+		"/home/jared/test.py",
+		"/home/jared/treadtracks/coreconsole/extraction/printextract.py",
+		"/home/jared/.config/sublime-text-2/Packages/Python/New-Class.sublime-snippet",
+		"/home/jared/Downloads/tpsend.069",
+		"/home/jared/bin/wonderland",
+		"/home/jared/Downloads/JaredVZW.txt",
+		"/home/jared/Downloads/UnbilledVoice.action",
+		"/home/jared/Dropbox/Personal/Backup-codes-incite-sensor.txt",
+		"/home/jared/.ssh/config",
+		"/home/jared/bin/battery.py",
+		"/home/jared/bin/.smashing",
+		"/home/jared/TreadTracks/coreconsole/README.md",
+		"/home/jared/TreadTracks/coreconsole/.gitignore",
+		"/var/www/tirecore/app/webroot/touch/src/platform/src/data/sync/Updates.js",
+		"/home/jared/TreadTracks/coreconsole/app/console.py",
+		"/media/jared/Seagate Backup Plus Drive/System Volume Information/MountPointManagerRemoteDatabase",
+		"/media/jared/Seagate Backup Plus Drive/Seagate/Registration/setup.cfg",
+		"/home/jared/TreadTracks/coreconsole/app/scratch/testing.html",
+		"/home/jared/TreadTracks/coreconsole/app/treadtracks.cfg",
+		"/home/jared/.treadtracks",
+		"/var/www/tirecore/app/banchaDocs.md",
+		"/home/jared/Incite/football/gps.py",
+		"/home/jared/Incite/football/django/projects/football/football/settings.py",
+		"/home/jared/Incite/football/.gitignore",
+		"/home/jared/Incite/football/README.md",
+		"/var/www/tirecore/app/DBDEPLOY_INSTRUCTIONS.md",
+		"/var/www/tirecore/app/README.md",
+		"/home/jared/pi.fs/i2c.py",
+		"/home/jared/pi.fs/i2cfixed.py",
+		"/home/jared/.cache/.fr-vy4rWh/C002537_3484_cr3-js-sim/cr3-js/editor/latex.properties",
+		"/home/jared/.cache/.fr-wEWPrD/C002537_3484_cr3-js-sim/cr3-js/jse/.startup.js",
+		"/home/jared/.cache/.fr-O1LIfq/C002537_3484_cr3-js-sim/cr3-js/jse/.crx.js",
+		"/home/jared/pi.fs/bin/dyndns.py",
+		"/media/jared/A1B1-918F/issue.txt",
+		"/media/jared/A1B1-918F/config.txt",
+		"/etc/phpmyadmin/config.inc.php",
+		"/home/jared/.cache/.fr-4sTWwZ/treadtracks (18).sql",
+		"/media/jared/10b4c001-2137-4418-b29e-57b7d15a6cbc/etc/udhcpd.conf",
+		"/etc/apache2/sites-available/bank",
+		"/etc/hosts",
+		"/etc/apache2/sites-available/tirecore",
+		"/etc/apache2/sites-available/moms",
+		"/etc/environment",
+		"/home/jared/Incite/football/django/projects/football/manage.py",
+		"/etc/apache2/httpd.conf",
+		"/etc/php5/apache2/php.ini",
+		"/etc/apache2/apache2.conf",
+		"/etc/anacrontab",
+		"/etc/apache2/sites-available/moms.local",
+		"/usr/share/applications/phpstorm.desktop",
+		"/etc/default/grub",
+		"/usr/share/applications/defaults.list",
+		"/etc/apache2/sites-enabled/tirecore",
+		"/etc/apache2/sites-available/default",
+		"/etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"590",
+			".find",
+			"results",
+			"\\s\"([^\"]+)\"\\s*:\\s*\"\"",
+			"\\s\"([^\"])+\"\\s*:\\s*\"\"",
+			",",
+			"[A-Z]",
+			"B_",
+			"customer profile",
+			"writer",
+			"BUFF SPEC",
+			"BRAND/ORIGINAL",
+			"BRAND/ORIGIN",
+			"debug",
+			"print",
+			"verbose",
+			"debug",
+			"debug.*line",
+			"debug",
+			"startsWith",
+			"133",
+			"reduce",
+			" -1",
+			"print",
+			"$",
+			"extractprintdata",
+			"scoprint",
+			"    -",
+			"tab",
+			"self",
+			"config.set",
+			"<button onclick=\"console.log(localActions.localItems('blah'));\">Click me to get the local Items</button>",
+			"casings",
+			"moms2",
+			"extension",
+			"include_path",
+			"gedit.desktop"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			".search",
+			"entry['\\1']",
+			": \"\",",
+			"\\l&",
+			"S_",
+			"maxwidth",
+			"debug",
+			"\\$",
+			"moms",
+			"sublime.desktop"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "manifest.json",
+					"settings":
+					{
+						"buffer_size": 455,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "popup.html",
+					"settings":
+					{
+						"buffer_size": 1899,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "popup.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "scripts.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/jared/.cache/.fr-unq5bR/ClientsController.php",
+					"settings":
+					{
+						"buffer_size": 9695,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true
+}

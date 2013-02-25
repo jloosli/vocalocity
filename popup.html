@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+	<title>Vocalocity Dialer</title>
+	<style>
+		* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+		body {
+			min-width: 357px;
+			margin: 20px;
+		}
+
+		header img {
+			display: block;
+			margin: 5px auto;
+		}
+
+		#messageBox {display: none; width: 100%; margin: 5px 0; padding: 5px; border-width: 1px; border-style: solid; text-align: center; clear: both;}
+		.info {background: #528CE0; border-color: #366097; color: white;}
+		.warning { background: #fcefa1; border-color: #fad000; color: #575757;}
+		.error {background: #EE5757; border-color: #cd0a0a; color: white;}
+
+		#dialbox p {float: left;}
+
+		#dialbutton {float: right; margin: 10px 10px 0 0; padding: 20px 40px;}
+
+		#preferences {clear: both;}
+	</style>
+	<link rel="stylesheet" href="css/le-frog/jquery-ui-1.10.0.custom.min.css"/>
+	<script src="js/jquery-1.9.0.js"></script>
+	<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=init"></script><!-- http://code.google.com/p/google-api-javascript-client/wiki/GettingStarted -->
+
+	<!--
+	  - JavaScript and HTML must be in separate files: see our Content Security
+	  - Policy documentation[1] for details and explanation.
+	  -
+	  - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+	 -->
+</head>
+<body>
+<header>
+	<img src="icons/logo.png" />
+</header>
+<form id="dialbox"  class="ui-widget">
+	<p>
+		<label for="dialer">Number to dial:</label><br />
+		<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number" />
+	</p>
+	<input type="submit" value="Dial" id="dialbutton"/>
+</form>
+<div id="messageBox"></div>
+<div id="preferences">
+	<h3>Recent Calls</h3>
+	<div id="recent">
+		<ul></ul>
+	</div>
+	<h3>Company Address Book</h3>
+	<div>
+		<h4>Nothing here yet</h4>
+	</div>
+	<h3>Personal Address Book</h3>
+	<div>
+		<h4>Nothing here yet</h4>
+	</div>
+	<h3>Set your preferences</h3>
+
+	<div>
+		<form id="preferences_form">
+			<p>
+				<label for="username">Username</label>
+				<input id="username"/>
+			</p>
+
+			<p>
+				<label for="password">Password</label>
+				<input type="password" id="password">
+			</p>
+			<input type="submit" />
+		</form>
+	</div>
+</div>
+
+
+<script src="js/scripts.js"></script>
+</body>
+</html>
+
