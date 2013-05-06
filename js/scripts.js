@@ -6,10 +6,13 @@ var storage = chrome.storage.sync;
 
 var vocalocity = {
 
-    apiPath:"https://my.vocalocity.com/presence/rest/clicktocall/",
-    clickToCall:"https://my.vocalocity.com/appserver/rest/click2callme/{from}/?phonenumber={to}",
-    lastNumbers:[],
-    placeCall:function (theNumber) {
+    urls: {
+        clickToCall: "https://my.vocalocity.com/presence/rest/clicktocall/",
+        clickToCallMe: "https://my.vocalocity.com/appserver/rest/click2callme/{from}/?phonenumber={to}",
+        directory: "https://my.vocalocity.com/presence/rest/directory"
+    },
+    lastNumbers: [],
+    placeCall: function (theNumber) {
         var me = this;
         var button = $('#dialbox :submit').hide();
         theNumber = theNumber.replace(/[^0-9]/g, "");
@@ -18,7 +21,7 @@ var vocalocity = {
         storage.get(['username', 'password', 'lastNumbers'], function (loginInfo) {
             console.log(loginInfo, "loginInfo");
             var req = new XMLHttpRequest();
-            req.open("GET", me.apiPath + theNumber, true);
+            req.open("GET", me.urls.clickToCall + theNumber, true);
             req.setRequestHeader("login", loginInfo.username);
             req.setRequestHeader("password", loginInfo.password);
             req.send(null);
@@ -26,7 +29,7 @@ var vocalocity = {
                 if (req.readyState == 4) {
                     switch (req.status) {
                         case 200 :
-                            me.infoMessage('Call to ' +theNumber + ' was placed.', "info");
+                            me.infoMessage('Call to ' + theNumber + ' was placed.', "info");
                             break;
                         case 400 :
                             me.infoMessage('Bad phone number', "error");
@@ -49,20 +52,20 @@ var vocalocity = {
         });
 
     },
-    saveLogin:function () {
+    saveLogin: function () {
         var username = $("#username").val();
         var password = $("#password").val();
-        storage.set({'username':username, 'password':password});
+        storage.set({'username': username, 'password': password});
         this.infoMessage("Username and password saved");
     },
-    infoMessage:function (message, msgType) {
+    infoMessage: function (message, msgType) {
         var msg = $('#messageBox');
         console.log(message, msgType);
         msgType = msgType || "info";
         msg.removeAttr('class').addClass(msgType); // @todo had to use removeAttr instead of removeClass() due to bug in jQuery UI
         msg.html(message).stop(true).fadeIn('slow').delay(5000).fadeOut('slow');
     },
-    saveNumberDialed:function (number) {
+    saveNumberDialed: function (number) {
         console.log("Saving " + number);
         console.log(this);
 
@@ -74,16 +77,15 @@ var vocalocity = {
         if (this.lastNumbers.length > 10) {
             this.lastNumbers.shift();
         }
-        storage.set({'lastNumbers':this.lastNumbers});
+        storage.set({'lastNumbers': this.lastNumbers});
         $("<li />").html($('<a />', {
-                href: '#',
-                text: thisoca.formatNumber(number)
-            })).appendTo($('#recent ul'));
-
+            href: '#',
+            text: thisoca.formatNumber(number)
+        })).appendTo($('#recent ul'));
 
 
     },
-    populateLastDialed:function () {
+    populateLastDialed: function () {
         var self = this;
         storage.get(['lastNumbers'], function (data) {
             var list = data.lastNumbers || self.lastNumbers;
@@ -95,9 +97,9 @@ var vocalocity = {
             var domList = $('<ul />');
             var link;
 
-            list && $.each(list, function (idx,item) {
+            list && $.each(list, function (idx, item) {
                 link = $('<a />', {
-                    href : "#",
+                    href: "#",
                     text: self.formatNumber(item)
                 });
                 domList.append(link);
@@ -113,18 +115,18 @@ var vocalocity = {
         $('#dialer').val(number);
     },
     formatNumber: function (number) {
-        if(number.length > 7) {
+        if (number.length > 7) {
             number = number.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
         }
         return number;
     },
-    init:function () {
+    init: function () {
         this.populateLastDialed();
     }
 
 };
 $(document).ready(function () {
-    $('#recent').on('click', 'a', function(e) {
+    $('#recent').on('click', 'a', function (e) {
         e.preventDefault();
         vocalocity.loadNumber($(this).text());
         console.log(this);
@@ -167,9 +169,9 @@ function init() {
 }
 
 $("#preferences").accordion({
-    collapsible:true,
+    collapsible: true,
     //active:false,
-    heightStyle:"content"
+    heightStyle: "content"
 });
 
 chrome.storage.onChanged.addListener(function (changes, namespace) {
