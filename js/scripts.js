@@ -77,7 +77,7 @@ var vocalocity = {
         storage.set({'lastNumbers':this.lastNumbers});
         $("<li />").html($('<a />', {
                 href: '#',
-                text: self.formatNumber(number)
+                text: thisoca.formatNumber(number)
             })).appendTo($('#recent ul'));
 
 
