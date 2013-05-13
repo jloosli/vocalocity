@@ -8,12 +8,12 @@
 	"permissions":[
 		"contextMenus",
 		"https://my.vocalocity.com/",
-		"https://code.jquery.com/",
-		"https://apis.google.com/",
-        "https://ajax.googleapis.com/",
+//		"https://code.jquery.com/",
+//		"https://apis.google.com/",
+//        "https://ajax.googleapis.com/",
 		"storage"
 	],
-	"content_security_policy" : "script-src 'self' https://apis.google.com/; object-src 'self'",
+	"content_security_policy" : "script-src 'self'; https://apis.google.com/; object-src 'self'",
 	"browser_action":{
 		"default_icon":"icons/icon-16.png",
 		"default_popup":"popup.html"
