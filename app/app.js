@@ -4,7 +4,7 @@ app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/',
         {
-            controller: 'vocalocityController',
+            controller: 'dialerController',
             templateUrl: '/app/partials/dialer.html'
 
         })
@@ -18,8 +18,3 @@ app.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
-app.filter('directoryToList', function () {
-    return function (directory) {
-        return Object.keys(directory);
-    }
-})

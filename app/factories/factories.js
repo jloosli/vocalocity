@@ -35,3 +35,4 @@ app.factory('directoryFactory', function ($http, $q) {
     return factory;
 
 });
+

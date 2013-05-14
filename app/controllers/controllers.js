@@ -5,7 +5,7 @@
  * Time: 2:39 PM
  * To change this template use File | Settings | File Templates.
  */
-app.controller('vocalocityController', function ($scope, $http, $cookies, directoryFactory) {
+app.controller('dialerController', function ($scope, $http, $cookies, directoryFactory) {
 
     var storage = chrome.storage.sync;
 
