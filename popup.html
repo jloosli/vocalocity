@@ -3,6 +3,10 @@
 <head>
 	<title>Vocalocity Dialer</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+	<style>
+		.container {min-width: 400px;}
+	</style>
 </head>
 <body>
 <div class="container">
@@ -13,16 +17,16 @@
 	</header>
 	<div ng-include="'/app/partials/menu.html'"></div>
 	<div id="messageBox"></div>
-	<div data-ng-view></div>
+	<div class="row" data-ng-view></div>
 </div>
 <script src="js/angular-1.0.6/angular.min.js"></script>
 <script src="js/angular-1.0.6/angular-cookies.min.js"></script>
 <script src="js/jquery-2.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="app/app.js"></script>
-<script src="app/controllers/controllers.js"></script>
 <script src="app/factories/factories.js"></script>
 <script src="app/directives/directives.js"></script>
+<script src="app/controllers/controllers.js"></script>
 </body>
 </html>
 

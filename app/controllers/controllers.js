@@ -5,7 +5,7 @@
  * Time: 2:39 PM
  * To change this template use File | Settings | File Templates.
  */
-app.controller('vocalocityController', function ($scope, $http, $cookies) {
+app.controller('vocalocityController', function ($scope, $http, $cookies, directoryFactory) {
 
     var storage = chrome.storage.sync;
 
@@ -13,8 +13,10 @@ app.controller('vocalocityController', function ($scope, $http, $cookies) {
 
     function init() {
         authenticate();
-        getDirectory();
     }
+
+    $scope.directory = directoryFactory.getDirectory();
+
 
     $scope.dialNumber = function () {
         console.log("Dialing " + phoneNumber);
@@ -32,7 +34,8 @@ app.controller('vocalocityController', function ($scope, $http, $cookies) {
 
 
     $scope.addNumber = function () {
-        $scope.query = this.ext;
+        console.log(this);
+        $scope.query = this.details.ext;
     }
 
     function authenticate() {
@@ -57,22 +60,6 @@ app.controller('vocalocityController', function ($scope, $http, $cookies) {
                 });
 
         });
-    }
-
-    function getDirectory() {
-        $http({
-            method: 'GET',
-            url: 'https://dashboard.vocalocity.com/presence/rest/directory'
-
-        })
-            .success(function (data, status, headers, config) {
-                console.log('directory success');
-                $scope.directory = data.extensions;
-            })
-            .error(function (data, status, headers, config) {
-                console.log('directory fail');
-                //@todo show error
-            })
     }
 
 });

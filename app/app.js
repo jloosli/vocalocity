@@ -17,3 +17,9 @@ app.config(function ($routeProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);
 });
+
+app.filter('directoryToList', function () {
+    return function (directory) {
+        return Object.keys(directory);
+    }
+})
