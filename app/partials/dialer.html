@@ -1,10 +1,10 @@
 <form id="dialbox">
 	<label for="dialer">Number to dial:</label><br/>
 	<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number" data-ng-model="search" />
-	<button type="submit" class="btn">Dial</button>
+	<button type="submit" class="btn" data-ng-click="dialNumber()" >Dial</button>
 </form>
 <ul>
-	<li data-ng-repeat="number in phonenumbers">
-		{{number.name}} - {{number.number}}
+	<li data-ng-repeat="(ext, details) in directory | filter:search | orderBy:name" data-ng-click="addNumber()">
+		{{ext}} - {{details.name}}
 	</li>
 </ul>
