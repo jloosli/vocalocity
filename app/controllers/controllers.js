@@ -32,7 +32,7 @@ app.controller('vocalocityController', function ($scope, $http, $cookies) {
 
 
     $scope.addNumber = function () {
-        $scope.search = this.ext;
+        $scope.query = this.ext;
     }
 
     function authenticate() {
@@ -77,13 +77,12 @@ app.controller('vocalocityController', function ($scope, $http, $cookies) {
 
 });
 
-app.controller('settings', function ($scope,$location) {
+app.controller('settingsController', function ($scope,$location) {
     var storage = chrome.storage.sync;
 
     storage.get(['username','password'], function (user) {
         $scope.user=user;
     });
-    console.log("In settings");
     $scope.saveSettings = function (user) {
         console.log(user);
         storage.set({username: user.username, password: user.password});
@@ -92,4 +91,10 @@ app.controller('settings', function ($scope,$location) {
     }
 
 
+});
+
+app.controller('menuController', function($scope, $location) {
+    $scope.getClass = function (path) {
+        return $location.path() == path;
+    }
 });

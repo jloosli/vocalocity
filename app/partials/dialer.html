@@ -1,10 +1,10 @@
-<form id="dialbox">
+<form class="form-inline" id="dialbox">
 	<label for="dialer">Number to dial:</label><br/>
-	<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number" data-ng-model="search" />
+	<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number" data-ng-model="query" />
 	<button type="submit" class="btn" data-ng-click="dialNumber()" >Dial</button>
 </form>
 <ul style="-webkit-column-count: 3;">
-	<li data-ng-repeat="(ext, details) in directory | filter:search | orderBy:name" data-ng-click="addNumber()">
+	<li data-ng-repeat="(ext, details) in directory | filter:'query' | orderBy:name" data-ng-click="addNumber()">
 		{{ext}} - {{details.name}}
 	</li>
 </ul>

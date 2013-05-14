@@ -9,9 +9,6 @@
 		"contextMenus",
 		"https://my.vocalocity.com/",
         "https://dashboard.vocalocity.com/",
-//		"https://code.jquery.com/",
-//		"https://apis.google.com/",
-//        "https://ajax.googleapis.com/",
 		"storage"
 	],
 	"content_security_policy" : "script-src 'self' https://my.vocalocity.com/ https://dashboard.vocalocity.com/; object-src 'self'",

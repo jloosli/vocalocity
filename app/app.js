@@ -10,7 +10,7 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/settings',
         {
-            controller: 'settings',
+            controller: 'settingsController',
             templateUrl: '/app/partials/settings.html'
         })
         .otherwise({redirectTo: '/'});
