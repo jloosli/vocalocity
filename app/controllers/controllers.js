@@ -36,7 +36,7 @@ app.controller('vocalocityController', function ($scope, $http, $cookies) {
     }
 
     function authenticate() {
-        storage.get(['username', 'password'], function (loginInfo){
+        storage.get(['username', 'password'], function (loginInfo) {
             $http({
                 method: 'GET',
                 url: 'https://dashboard.vocalocity.com/appserver/rest/user/null',
@@ -77,3 +77,19 @@ app.controller('vocalocityController', function ($scope, $http, $cookies) {
 
 });
 
+app.controller('settings', function ($scope,$location) {
+    var storage = chrome.storage.sync;
+
+    storage.get(['username','password'], function (user) {
+        $scope.user=user;
+    });
+    console.log("In settings");
+    $scope.saveSettings = function (user) {
+        console.log(user);
+        storage.set({username: user.username, password: user.password});
+        $location.url('/');
+
+    }
+
+
+});

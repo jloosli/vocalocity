@@ -3,7 +3,7 @@
 	<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number" data-ng-model="search" />
 	<button type="submit" class="btn" data-ng-click="dialNumber()" >Dial</button>
 </form>
-<ul>
+<ul style="-webkit-column-count: 3;">
 	<li data-ng-repeat="(ext, details) in directory | filter:search | orderBy:name" data-ng-click="addNumber()">
 		{{ext}} - {{details.name}}
 	</li>
