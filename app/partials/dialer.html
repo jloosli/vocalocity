@@ -1,5 +1,5 @@
 <form class="form-inline" id="dialbox">
-	<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number or name" data-ng-model="query"/>
+	<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number or name" autofocus data-ng-model="query"/>
 	<button type="submit" class="btn" data-ng-click="dialNumber(query)">Dial</button>
 	<button class="btn btn-danger" type="button" data-ng-click="query=''">x</button>
 </form>

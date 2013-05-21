@@ -2,6 +2,11 @@ app.factory('directoryFactory', function ($http, $q) {
     var factory = {};
     var directory = [];
 
+    factory.getItem = function(index) { return directory[index]; }
+    factory.addItem = function(item) { directory.push(item); }
+    factory.removeItem = function(item) { directory.splice(list.indexOf(item), 1) }
+    factory.size = function() { return directory.length; }
+
     //init();
 
     function init() {
