@@ -48,29 +48,6 @@ app.controller('dialerController', function ($scope, $http, $cookies, $filter, d
         $scope.query = this.details.ext;
     }
 
-    function authenticate() {
-        storage.get(['username', 'password'], function (loginInfo) {
-            $http({
-                method: 'GET',
-                url: 'https://dashboard.vocalocity.com/appserver/rest/user/null',
-                headers: {
-                    login: loginInfo.username,
-                    password: loginInfo.password
-                }
-            })
-                .success(function (data, status, headers, config) {
-                    console.log(data);
-
-                })
-                .error(function (data, status, headers, config) {
-                    for (i in headers) {
-                        console.log(i);
-                        console.log(headers[i]);
-                    }
-                });
-
-        });
-    }
 
 });
 
