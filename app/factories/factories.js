@@ -1,13 +1,14 @@
 app.factory('directoryFactory', function ($http, $q) {
     var factory = {};
     var directory = [{name: "Test", ext: "123"}];
+    var storage = chrome.storage.sync;
 
     factory.getItem = function(index) { return directory[index]; }
     factory.addItem = function(item) { directory.push(item); }
     factory.removeItem = function(item) { directory.splice(list.indexOf(item), 1) }
     factory.size = function() { return directory.length; }
 
-    factory.authenticate = function () {
+    var authenticate = function () {
         storage.get(['username', 'password'], function (loginInfo) {
             $http({
                 method: 'GET',
@@ -33,19 +34,20 @@ app.factory('directoryFactory', function ($http, $q) {
     }
 
 
-    //init();
+    init();
 
     function init() {
-        this.factory.authenticate();
+        authenticate();
         $http({
             method: 'GET',
             url: 'https://dashboard.vocalocity.com/presence/rest/directory'
 
         })
             .success(function (data, status, headers, config) {
+                var tempDir = []
                 angular.forEach(data.extensions, function (value, key) {
                     value['ext'] = key;
-                    this.push(value);
+                    tempDir.push(value);
                 }, this.directory);
                 console.log('directory success');
             })
@@ -57,15 +59,16 @@ app.factory('directoryFactory', function ($http, $q) {
 
 
     factory.getDirectory = function () {
-        return $http.get('https://dashboard.vocalocity.com/presence/rest/directory').then(function (results) {
-            var listData = [];
-            angular.forEach(results.data.extensions, function (value, key) {
-                value['ext'] = key;
-                this.push(value);
-            }, listData);
-            console.log(listData);
-                return listData; //results.data.extensions;
-            });
+        return this.directory;
+//        return $http.get('https://dashboard.vocalocity.com/presence/rest/directory').then(function (results) {
+//            var listData = [];
+//            angular.forEach(results.data.extensions, function (value, key) {
+//                value['ext'] = key;
+//                this.push(value);
+//            }, listData);
+//            console.log(listData);
+//                return listData; //results.data.extensions;
+//            });
     };
     return factory;
 

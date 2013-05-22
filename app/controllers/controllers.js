@@ -7,13 +7,6 @@
  */
 app.controller('dialerController', function ($scope, $http, $cookies, $filter, directoryFactory) {
 
-    var storage = chrome.storage.sync;
-
-    init();
-
-    function init() {
-        authenticate();
-    }
 
     $scope.directory = directoryFactory.getDirectory();
 
