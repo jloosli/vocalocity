@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="/usr/share/php/data/phing/etc/phing-grammar.rng"
+        type="application/xml"
+        schematypens="http://relaxng.org/ns/structure/1.0" ?>
+
+<project name="packageForChrome" default="main">
+
+    <property name="timezone" value="timezone=America/Denver" />
+
+    <!-- define main targets -->
+    <target name="main" description="default tasks: zip everything up for chrome"
+            depends="set-timezone, zipFiles"/>
+
+    <target name="set-timezone">
+
+        <!-- set local time zone, otherwise we get php warnings in the console -->
+        <adhoc-task name="timezone"><![CDATA[
+            class TimezoneTask extends Task {
+                private $timezone;
+                function setZone($timezone) {
+                    $this->timezone = $timezone;
+                }
+                function main() {
+                    date_default_timezone_set($this->timezone);
+                    $this->log("Setting timezone to ".$this->timezone);
+                }
+            }
+        ]]></adhoc-task>
+        <timezone zone="${timezone}"/>
+
+        <!-- Make the current buildtime available as a property -->
+        <tstamp>
+            <!-- Format is, e.g. 2009-10-03 16:31:15 -->
+            <format property="build_time" pattern="%Y-%m-%dT%H:%m:%s"/>
+        </tstamp>
+    </target>
+
+    <target name="zipFiles">
+        <zip destfile="builds/${build_time}.zip">
+            <fileset dir=".">
+                <include name="**/**" />
+                <exclude name="*.xml" />
+                <exclude name=".git*" />
+                <exclude name="*.md" />
+                <exclude name="*.zip" />
+                <exclude name="builds" />
+                <exclude name=".idea/"  />
+                <exclude name="*.sublime*" />
+            </fileset>
+        </zip>
+    </target>
+
+
+
+</project>

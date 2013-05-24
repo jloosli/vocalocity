@@ -1,11 +1,12 @@
 <form class="form-inline" id="dialbox">
-	<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number or name" data-ng-model="query"/>
-	<button type="submit" class="btn" data-ng-click="dialNumber(query)">Dial</button>
+	<input name="dialer" type="tel" id="dialer" placeholder="Enter phone number or name" autofocus ng-model="query"/>
+	<button type="submit" class="btn" ng-click="dialNumber(query)">Dial</button>
 	<button class="btn btn-danger" type="button" data-ng-click="query=''">x</button>
 </form>
 <div class="alert" data-ng-show="alertMessage.length > 0">{{alertMessage}}</div>
 <div style="-webkit-column-count: 3;">
-	<button style="display: inline-block;" class="btn btn-block btn-mini" data-ng-repeat="details in directory | filter:query | orderBy:'name'" data-ng-click="addNumber()">
+	<button title="{{details.status != 'available' && 'busy' || ''}}" style="display: inline-block;" class="btn btn-block btn-mini {{details.status != 'available' && 'btn-inverse' || ''}}"
+	        ng-repeat="details in directory | filter:query | orderBy:'name'" ng-click="addNumber()">
 		{{details.name}}
 	</button>
 </div>

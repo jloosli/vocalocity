@@ -5,17 +5,18 @@
  * Time: 2:39 PM
  * To change this template use File | Settings | File Templates.
  */
-app.controller('dialerController', function ($scope, $http, $cookies, $filter, directoryFactory) {
+app.controller('dialerController', function ($scope, $http, $cookies, $filter, directoryFactory, $timeout, $rootScope) {
 
-    var storage = chrome.storage.sync;
 
-    init();
+    $scope.directory = directoryFactory.directory;
 
-    function init() {
-        authenticate();
-    }
+    $rootScope.$on('data-updated', function (event, data) {
+        $scope.directory = directoryFactory.directory;
+    });
 
-    $scope.directory = directoryFactory.getDirectory();
+//    $timeout(function () {
+//        $scope.directory = directoryFactory.directory;
+//    },2000);
 
 //    $scope.$watch('query', function(newVal,oldVal) {
 //        $scope.filteredQuery = $filter('filter')($scope.directory, $scope.query);
@@ -48,29 +49,6 @@ app.controller('dialerController', function ($scope, $http, $cookies, $filter, d
         $scope.query = this.details.ext;
     }
 
-    function authenticate() {
-        storage.get(['username', 'password'], function (loginInfo) {
-            $http({
-                method: 'GET',
-                url: 'https://dashboard.vocalocity.com/appserver/rest/user/null',
-                headers: {
-                    login: loginInfo.username,
-                    password: loginInfo.password
-                }
-            })
-                .success(function (data, status, headers, config) {
-                    console.log(data);
-
-                })
-                .error(function (data, status, headers, config) {
-                    for (i in headers) {
-                        console.log(i);
-                        console.log(headers[i]);
-                    }
-                });
-
-        });
-    }
 
 });
 
