@@ -1,17 +1,28 @@
 app.factory('directoryFactory', function ($http, $rootScope) {
     var self = this;
     var factory = {};
-    factory.directory = [{name: "Test", ext: "123"},{name: 'Bob', ext: "234"}];
+    factory.directory = [
+        {name: "Test", ext: "123"},
+        {name: 'Bob', ext: "234"}
+    ];
 //    factory.directory = function () {
 //        return factory.list;
 //
 //    }
     var storage = chrome.storage.sync;
 
-    factory.getItem = function(index) { return factory.directory[index]; }
-    factory.addItem = function(item) { factory.directory.push(item); }
-    factory.removeItem = function(item) { factory.directory.splice(factory.directory.indexOf(item), 1) }
-    factory.size = function() { return factory.directory.length; }
+    factory.getItem = function (index) {
+        return factory.directory[index];
+    }
+    factory.addItem = function (item) {
+        factory.directory.push(item);
+    }
+    factory.removeItem = function (item) {
+        factory.directory.splice(factory.directory.indexOf(item), 1)
+    }
+    factory.size = function () {
+        return factory.directory.length;
+    }
 
     var authenticate = function () {
         storage.get(['username', 'password'], function (loginInfo) {
@@ -52,11 +63,13 @@ app.factory('directoryFactory', function ($http, $rootScope) {
                 var tempDir = [];
                 console.log(factory.directory);
                 angular.forEach(data.extensions, function (value, key) {
-                    value['ext'] = key;
-                    this.push(value);
+                    if (value['loginName']) {
+                        value['ext'] = key;
+                        this.push(value);
+                    }
                 }, tempDir);
-                factory.directory=tempDir;
-                $rootScope.$broadcast('data-updated',true);
+                factory.directory = tempDir;
+                $rootScope.$broadcast('data-updated', true);
                 console.log(factory.directory);
                 console.log('directory success');
             })
