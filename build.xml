@@ -44,6 +44,8 @@
                 <exclude name="*.md" />
                 <exclude name="*.zip" />
                 <exclude name="builds" />
+                <exclude name=".idea/"  />
+                <exclude name="*.sublime*" />
             </fileset>
         </zip>
     </target>
