@@ -5,10 +5,14 @@
  * Time: 2:39 PM
  * To change this template use File | Settings | File Templates.
  */
-app.controller('dialerController', function ($scope, $http, $cookies, $filter, directoryFactory) {
+app.controller('dialerController', function ($scope, $http, $cookies, $filter, directoryFactory, $timeout) {
 
 
     $scope.directory = directoryFactory.directory();
+
+    $timeout(function () {
+        $scope.directory = directoryFactory.directory();
+    },2000);
 
 //    $scope.$watch('query', function(newVal,oldVal) {
 //        $scope.filteredQuery = $filter('filter')($scope.directory, $scope.query);
