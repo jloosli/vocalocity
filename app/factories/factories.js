@@ -1,11 +1,11 @@
-app.factory('directoryFactory', function ($http, $q) {
+app.factory('directoryFactory', function ($http, $rootScope) {
     var self = this;
     var factory = {};
-    factory.list = [{name: "Test", ext: "123"},{name: 'Bob', ext: "234"}];
-    factory.directory = function () {
-        return factory.list;
-
-    }
+    factory.directory = [{name: "Test", ext: "123"},{name: 'Bob', ext: "234"}];
+//    factory.directory = function () {
+//        return factory.list;
+//
+//    }
     var storage = chrome.storage.sync;
 
     factory.getItem = function(index) { return factory.directory[index]; }
@@ -55,7 +55,8 @@ app.factory('directoryFactory', function ($http, $q) {
                     value['ext'] = key;
                     this.push(value);
                 }, tempDir);
-                factory.list=tempDir;
+                factory.directory=tempDir;
+                $rootScope.$broadcast('data-updated',true);
                 console.log(factory.directory);
                 console.log('directory success');
             })
