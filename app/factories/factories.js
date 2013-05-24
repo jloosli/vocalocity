@@ -1,14 +1,11 @@
 app.factory('directoryFactory', function ($http, $rootScope) {
     var self = this;
     var factory = {};
-    factory.directory = [
-        {name: "Test", ext: "123"},
-        {name: 'Bob', ext: "234"}
-    ];
-//    factory.directory = function () {
-//        return factory.list;
-//
-//    }
+    factory.directory = [];
+//    factory.directory = [
+//        {name: "Test", ext: "123"},
+//        {name: 'Bob', ext: "234"}
+//    ];
     var storage = chrome.storage.sync;
 
     factory.getItem = function (index) {
