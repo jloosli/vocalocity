@@ -8,7 +8,7 @@
 app.controller('dialerController', function ($scope, $http, $cookies, $filter, directoryFactory) {
 
 
-    $scope.directory = directoryFactory.getDirectory();
+    $scope.directory = directoryFactory.directory();
 
 //    $scope.$watch('query', function(newVal,oldVal) {
 //        $scope.filteredQuery = $filter('filter')($scope.directory, $scope.query);

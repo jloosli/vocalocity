@@ -1,12 +1,17 @@
 app.factory('directoryFactory', function ($http, $q) {
+    var self = this;
     var factory = {};
-    var directory = [{name: "Test", ext: "123"}];
+    factory.list = [{name: "Test", ext: "123"},{name: 'Bob', ext: "234"}];
+    factory.directory = function () {
+        return factory.list;
+
+    }
     var storage = chrome.storage.sync;
 
-    factory.getItem = function(index) { return directory[index]; }
-    factory.addItem = function(item) { directory.push(item); }
-    factory.removeItem = function(item) { directory.splice(list.indexOf(item), 1) }
-    factory.size = function() { return directory.length; }
+    factory.getItem = function(index) { return factory.directory[index]; }
+    factory.addItem = function(item) { factory.directory.push(item); }
+    factory.removeItem = function(item) { factory.directory.splice(factory.directory.indexOf(item), 1) }
+    factory.size = function() { return factory.directory.length; }
 
     var authenticate = function () {
         storage.get(['username', 'password'], function (loginInfo) {
@@ -44,17 +49,20 @@ app.factory('directoryFactory', function ($http, $q) {
 
         })
             .success(function (data, status, headers, config) {
-                var tempDir = []
+                var tempDir = [];
+                console.log(factory.directory);
                 angular.forEach(data.extensions, function (value, key) {
                     value['ext'] = key;
-                    tempDir.push(value);
-                }, this.directory);
+                    this.push(value);
+                }, tempDir);
+                factory.list=tempDir;
+                console.log(factory.directory);
                 console.log('directory success');
             })
             .error(function (data, status, headers, config) {
                 console.log('directory fail');
                 //@todo show error
-            })
+            });
     }
 
 
