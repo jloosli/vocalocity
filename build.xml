@@ -9,7 +9,7 @@
 
     <!-- define main targets -->
     <target name="main" description="default tasks: zip everything up for chrome"
-            depends="set-timezone, zipFiles"/>
+            depends="set-timezone, build"/>
 
     <target name="set-timezone">
 
@@ -35,8 +35,45 @@
         </tstamp>
     </target>
 
-    <target name="zipFiles">
-        <zip destfile="builds/${build_time}.zip">
+    <target name="get-app-version">
+
+        <adhoc-task name="appversion" ><![CDATA[
+            class AppversionTask extends Task {
+
+                private $version;
+
+                public function getVersion() {
+                    return $this->version;
+                }
+                function main() {
+                    $manifest = file_get_contents("manifest.json");
+                    $manifest_json = json_decode($manifest);
+                    print_r($manifest_json);
+                    $version = $manifest_json->version;
+                    $this->log("App version: " . $version);
+                    $this->version = $version;
+                }
+            }
+        ]]></adhoc-task>
+        <appversion output="version" />
+        <echo message="${version}" />
+
+    </target>
+
+    <target name="getversion">
+        <php expression="file_get_contents('manifest.json');" returnProperty="manifest" />
+        <php expression="$tmp=json_decode('(${manifest})'); $tmp->version;" returnProperty="json">
+        </php>
+
+    </target>
+
+    <target name="version">
+        <exec command="grep '[^_]version' manifest.json | grep -oE '[0-9\.]+'" outputProperty="version" />
+        <echo message="${version}" />
+    </target>
+
+    <target name="build" depends="set-timezone, version">
+        <zip destfile="builds/vocalocity-${version}-${build_time}.zip">
             <fileset dir=".">
                 <include name="**/**" />
                 <exclude name="*.xml" />
