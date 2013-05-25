@@ -3,7 +3,7 @@
 
 	"name":"Vocalocity Calling",
 	"description":"Easy dial for Vocalocity",
-	"version":"0.0.0.2",
+	"version":"0.0.0.3",
 
 	"permissions":[
 		"contextMenus",
