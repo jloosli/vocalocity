@@ -4,7 +4,7 @@
 	<button class="btn btn-danger" type="button" data-ng-click="query=''">x</button>
 </form>
 <div class="alert" data-ng-show="alertMessage.length > 0">{{alertMessage}}</div>
-<div class="alert" data-ng-show="directory.length == 0"><h3>Loading contacts</h3></div>
+<div class="alert well" data-ng-show="directory.length == 0"><h3>Loading contacts</h3></div>
 <div style="-webkit-column-count: 3;">
 	<button title="{{details.status != 'available' && 'busy' || ''}}"
 	        style="display: inline-block;" class="btn btn-block btn-mini {{details.status != 'available' && 'btn-inverse' || ''}}"
