@@ -35,44 +35,13 @@
         </tstamp>
     </target>
 
-    <target name="get-app-version">
-
-        <adhoc-task name="appversion" ><![CDATA[
-            class AppversionTask extends Task {
-
-                private $version;
-
-                public function getVersion() {
-                    return $this->version;
-                }
-                function main() {
-                    $manifest = file_get_contents("manifest.json");
-                    $manifest_json = json_decode($manifest);
-                    print_r($manifest_json);
-                    $version = $manifest_json->version;
-                    $this->log("App version: " . $version);
-                    $this->version = $version;
-                }
-            }
-        ]]></adhoc-task>
-        <appversion output="version" />
-        <echo message="${version}" />
-
-    </target>
 
     <target name="getversion">
-        <php expression="file_get_contents('manifest.json');" returnProperty="manifest" />
-        <php expression="$tmp=json_decode('(${manifest})'); $tmp->version;" returnProperty="json">
-        </php>
-
-    </target>
-
-    <target name="version">
         <exec command="grep '[^_]version' manifest.json | grep -oE '[0-9\.]+'" outputProperty="version" />
         <echo message="${version}" />
     </target>
 
-    <target name="build" depends="set-timezone, version">
+    <target name="build" depends="set-timezone, getversion">
         <zip destfile="builds/vocalocity-${version}-${build_time}.zip">
             <fileset dir=".">
                 <include name="**/**" />
@@ -80,7 +49,7 @@
                 <exclude name=".git*" />
                 <exclude name="*.md" />
                 <exclude name="*.zip" />
-                <exclude name="builds" />
+                <exclude name="builds/" />
                 <exclude name=".idea/"  />
                 <exclude name="*.sublime*" />
             </fileset>
