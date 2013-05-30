@@ -1,4 +1,4 @@
-app.factory('directoryFactory', function ($http, $rootScope) {
+app.factory('directoryFactory', function ($http, $rootScope, $q) {
     var self = this;
     var factory = {};
     factory.directory = [];
@@ -22,6 +22,7 @@ app.factory('directoryFactory', function ($http, $rootScope) {
     }
 
     var authenticate = function () {
+        var deferred = $q.defer();
         storage.get(['username', 'password'], function (loginInfo) {
             $http({
                 method: 'GET',
@@ -33,7 +34,7 @@ app.factory('directoryFactory', function ($http, $rootScope) {
             })
                 .success(function (data, status, headers, config) {
                     console.log(data);
-
+                    deferred.resolve();
                 })
                 .error(function (data, status, headers, config) {
                     var i;
@@ -41,53 +42,48 @@ app.factory('directoryFactory', function ($http, $rootScope) {
                         console.log(i);
                         console.log(headers[i]);
                     }
+                    deferred.reject();
                 });
 
         });
+        return deferred.promise;
     }
 
 
     init();
 
     function init() {
-        authenticate();
-        $http({
-            method: 'GET',
-            url: 'https://dashboard.vocalocity.com/presence/rest/directory'
+        var promise = authenticate();
+        promise.then(function () {
+            $http({
+                method: 'GET',
+                url: 'https://dashboard.vocalocity.com/presence/rest/directory'
 
-        })
-            .success(function (data, status, headers, config) {
-                var tempDir = [];
-                console.log(factory.directory);
-                angular.forEach(data.extensions, function (value, key) {
-                    if (value['loginName']) {
-                        value['ext'] = key;
-                        this.push(value);
-                    }
-                }, tempDir);
-                factory.directory = tempDir;
-                $rootScope.$broadcast('data-updated', true);
-                console.log(factory.directory);
-                console.log('directory success');
             })
-            .error(function (data, status, headers, config) {
-                console.log('directory fail');
-                //@todo show error
-            });
+                .success(function (data, status, headers, config) {
+                    var tempDir = [];
+                    console.log(factory.directory);
+                    angular.forEach(data.extensions, function (value, key) {
+                        if (value['loginName']) {
+                            value['ext'] = key;
+                            this.push(value);
+                        }
+                    }, tempDir);
+                    factory.directory = tempDir;
+                    $rootScope.$broadcast('data-updated', true);
+                    console.log(factory.directory);
+                    console.log('directory success');
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('directory fail');
+                    //@todo show error
+                });
+        });
     }
 
 
     factory.getDirectory = function () {
         return this.directory;
-//        return $http.get('https://dashboard.vocalocity.com/presence/rest/directory').then(function (results) {
-//            var listData = [];
-//            angular.forEach(results.data.extensions, function (value, key) {
-//                value['ext'] = key;
-//                this.push(value);
-//            }, listData);
-//            console.log(listData);
-//                return listData; //results.data.extensions;
-//            });
     };
     return factory;
 
